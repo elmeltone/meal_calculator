@@ -1,8 +1,8 @@
 var $ = require('jQuery');
-var addName = require('./add_name.js');
-var addDish = require('./add_dish.js');
-var submit = require('./submit.js');
+var addName = require('./addName');
+var addDish = require('./addDish');
+var submit = require('./submit');
 
 $(function() {
-
+ addName;
 });

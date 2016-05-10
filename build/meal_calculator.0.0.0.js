@@ -51,7 +51,9 @@
 	var addDish = __webpack_require__(3);
 	var submit = __webpack_require__(4);
 	
-	$(function () {});
+	$(function () {
+	  addName;
+	});
 
 /***/ },
 /* 1 */
@@ -9909,7 +9911,21 @@
 	
 	var $ = __webpack_require__(1);
 	
-	var addName = function addName() {};
+	var addName = function addName() {
+	  $('#newDiner').on('click', function (event) {
+	    event.preventDefault();
+	    console.log('name adding');
+	
+	    /*var inputArea = document.getElementById('diner')
+	    var inputValue = inputArea.value;
+	     if (!$('#diner').val()) {
+	      alert('Please type a name.');
+	    } else {
+	      $('#dinerName').append(inputValue);
+	     document.getElementById('diner', 'newDiner').hide;
+	    };*/
+	  });
+	};
 	
 	module.exports = addName;
 
