@@ -46,11 +46,18 @@
 
 	'use strict';
 	
+	//Require JS files
 	var $ = __webpack_require__(1);
 	var addName = __webpack_require__(2);
 	var addDish = __webpack_require__(3);
 	var submit = __webpack_require__(4);
 	
+	//Objects
+	var diner = {};
+	var totalBill = {};
+	var dinerBreakdown = {};
+	
+	//Document Ready
 	$(function () {
 	  addName();
 	});
