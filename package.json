@@ -12,8 +12,8 @@
     "food"
   ],
   "author": "Michael J Melton",
-  "license": "ISC"
-},
+  "license": "ISC",
   "dependencies": {
     "jquery": "^2.2.3"
   }
+}
