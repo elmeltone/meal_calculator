@@ -52,7 +52,7 @@
 	var submit = __webpack_require__(4);
 	
 	$(function () {
-	  addName;
+	  addName();
 	});
 
 /***/ },
@@ -9916,14 +9916,15 @@
 	    event.preventDefault();
 	    console.log('name adding');
 	
-	    /*var inputArea = document.getElementById('diner')
-	    var inputValue = inputArea.value;
-	     if (!$('#diner').val()) {
+	    var inputValue = $('#diner').val();
+	
+	    if (!$('#diner').val()) {
 	      alert('Please type a name.');
 	    } else {
 	      $('#dinerName').append(inputValue);
-	     document.getElementById('diner', 'newDiner').hide;
-	    };*/
+	
+	      $('#diner, #newDiner').hide();
+	    };
 	  });
 	};
 	

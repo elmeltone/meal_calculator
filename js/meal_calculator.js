@@ -4,5 +4,5 @@ var addDish = require('./addDish');
 var submit = require('./submit');
 
 $(function() {
- addName;
+ addName();
 });
