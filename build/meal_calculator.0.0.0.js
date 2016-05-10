@@ -47,6 +47,9 @@
 	'use strict';
 	
 	var $ = __webpack_require__(1);
+	var addName = __webpack_require__(2);
+	var addDish = __webpack_require__(3);
+	var submit = __webpack_require__(4);
 	
 	$(function () {});
 
@@ -9897,6 +9900,42 @@
 	return jQuery;
 	}));
 
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(1);
+	
+	var addName = function addName() {};
+	
+	module.exports = addName;
+
+/***/ },
+/* 3 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(1);
+	
+	var addDish = function addDish() {};
+	
+	module.exports = addDish;
+
+/***/ },
+/* 4 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	var $ = __webpack_require__(1);
+	
+	var submit = function submit() {};
+	
+	module.exports = submit;
 
 /***/ }
 /******/ ]);
