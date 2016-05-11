@@ -5,11 +5,15 @@ var addDish = require('./addDish');
 var submit = require('./submit');
 
 //Objects
-var diner = {};
+/*var diner = {
+  name:
+};
 var totalBill={};
-var dinerBreakdown={};
+var dinerBreakdown={};*/
 
 //Document Ready
 $(function() {
  addName();
+
+
 });

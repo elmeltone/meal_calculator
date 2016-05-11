@@ -53,9 +53,11 @@
 	var submit = __webpack_require__(4);
 	
 	//Objects
-	var diner = {};
-	var totalBill = {};
-	var dinerBreakdown = {};
+	/*var diner = {
+	  name:
+	};
+	var totalBill={};
+	var dinerBreakdown={};*/
 	
 	//Document Ready
 	$(function () {
@@ -9929,6 +9931,7 @@
 	      alert('Please type a name.');
 	    } else {
 	      $('#dinerName').append(inputValue);
+	      //inputValue = Object.create(diner);
 	
 	      $('#diner, #newDiner').hide();
 	    };

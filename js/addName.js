@@ -11,6 +11,7 @@ var addName = function() {
       alert('Please type a name.');
     } else {
       $('#dinerName').append(inputValue);
+      //inputValue = Object.create(diner);
 
     $('#diner, #newDiner').hide();
     };
