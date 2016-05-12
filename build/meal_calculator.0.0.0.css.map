@@ -1,1 +1,1 @@
-{"version":3,"sources":["../css/index.less"],"names":[],"mappings":"AAAA;EACE,wBAAA;;AAGF;AAAI;EACF,iBAAA;;AAGF;AAAY;AAAS;EACnB,iBAAA;;AAGF;AAAY;EACV,qBAAA;;AAGF;AAAe;AAAY;EACzB,gBAAA;;AAGF;AAAS;EACP,UAAA;;AAGF;EACE,kBAAA;;AACA,IAAC;EACD,eAAA;EACA,6BAAA","file":"meal_calculator.0.0.0.css"}
+{"version":3,"sources":["../css/index.less"],"names":[],"mappings":"AAAA;EACE,wBAAA;;AAGF;EACE,qBAAA;EACA,kBAAA;EACA,mBAAA;;AAGF;AAAI;EACF,iBAAA;;AAGF;AAAY;AAAS;EACnB,iBAAA;;AAGF;AAAS;EACP,UAAA;;AAGF;EACE,kBAAA;;AACA,IAAC;EACD,eAAA;EACA,6BAAA","file":"meal_calculator.0.0.0.css"}

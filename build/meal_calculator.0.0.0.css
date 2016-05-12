@@ -1,6 +1,11 @@
 body {
   background-color: orange;
 }
+ul {
+  list-style-type: none;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+}
 ul,
 li {
   padding-left: 2px;
@@ -9,15 +14,6 @@ li {
 .remove,
 .delete {
   font-weight: bold;
-}
-#dinerName,
-#dinerPreview {
-  list-style-type: none;
-}
-#dinerPreview,
-#totalBill,
-#dinerBreakdown {
-  padding-top: 1em;
 }
 .remove,
 .delete {

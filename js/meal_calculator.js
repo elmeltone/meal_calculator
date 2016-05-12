@@ -1,28 +1,24 @@
-//Require JS files
+//Require JS files ------------------------------
 var $ = require('jQuery');
-var addName = require('./addName');
-var addDish = require('./addDish');
-var submit = require('./submit');
+//var addName = require('./addName');
+//var addDish = require('./addDish');
+//var submit = require('./submit');
 var menu = require('./menu');
 
 
-//Objects
-var dish = {
-  name: "name",
-  cost: "cost"
+//Objects ---------------------------------------
+var dishObj = {
+  name: "",
+  cost: ""
 };
-
 var diner = [];
-
 var queue = [];
-
 var totalBill = {};
-
 var dinerBreakdown= {};
 
 
-//Functions
-var addName = function() {
+//Functions -------------------------------------
+function addName() {
   $('#newDiner').on('click', function(event) {
     event.preventDefault();
     console.log('name adding');
@@ -55,7 +51,59 @@ var addName = function() {
   });
 };
 
-//Document Ready
+function addDish() {
+  $('#selectDish').on('change', function(event){
+    event.preventDefault();
+    console.log('dish adding');
+    $('#submitDiner').show();
+  });
+
+  $('#newDish').on('click', function(event){
+    event.preventDefault();
+    console.log('addddddddd');
+    var dishName = $("#selectDish :selected").text();
+    var dishCost = $("#selectDish").val();
+    var newDish = Object.create(dishObj);
+    newDish.name = dishName;
+    newDish.cost = dishCost;
+    queue[0].push(newDish);
+    $('#dinerPreview').append('<li><span class="delete">X  </span>'+
+      dishCost+' - '+dishName+'</li>');
+    $('#selectDish').find($('option')).attr('selected', false);
+  });
+
+  $(document).on('click', ".delete", function(event){
+    event.preventDefault();
+    console.log('delete');
+    queue[0].pop();
+    console.log(queue);
+    $(this).parent('li').remove();
+  });
+};
+
+var submit = function() {
+  $('#submitDiner').on('click', function(event){
+    event.preventDefault();
+    console.log('submitting');
+    var submitDiner = queue[0];
+    submitDiner.forEach(function(i) {
+      $('#totalBill').append('<li>'+i.cost+' - '+i.name+'</li>');
+      $('#dinerBreakdown').append('<li>'+i+'<br>'+i.cost+' - '+i.name+'</li>')
+    })
+    //var dinerName = $('#dinerName').text();
+    //var dinerBill = $('#dinerPreview').text();
+    //$('#totalBill').append(dinerBill);
+    //$('#dinerBreakdown').append('--'+dinerName+':<br>'+dinerBill);
+    queue.pop();
+    $('#dinerName, #dinerPreview').empty();
+    $('#selectDish, #submitDiner, #newDish').hide();
+    $('#diner, #newDiner').show();
+  });
+};
+
+
+
+//Document Ready --------------------------------
 $(function() {
 
 $('#selectDish').hide();
