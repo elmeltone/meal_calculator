@@ -14,6 +14,7 @@ var addName = function() {
       //inputValue = Object.create(diner);
 
     $('#diner, #newDiner').hide();
+    $('#selectDish').show();
     };
   });
 };

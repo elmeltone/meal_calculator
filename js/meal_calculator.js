@@ -16,6 +16,8 @@ var dinerBreakdown={};*/
 //Document Ready
 $(function() {
 
+$('#selectDish').hide();
+
 var select = document.getElementById('selectDish');
 for(var i = 0; i < menu.length; i++) {
   var obj = document.createElement("option");
