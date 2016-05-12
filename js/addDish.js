@@ -10,7 +10,7 @@ var addDish = function() {
   $('#newDish').on('click', function(event){
     event.preventDefault();
     console.log('addddddddd');
-    $('#selectDish :selected').text().val().appendTo('#dinerPreview');
+    $('#dinerPreview').append($('#selectDish :selected').val());
     $('#selectDish').find('option:first').attr('selected', 'selected');
   })
 };
