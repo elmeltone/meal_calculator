@@ -55,7 +55,9 @@
 	
 	//Objects
 	var diner = {};
+	
 	var totalBill = {};
+	
 	var dinerBreakdown = {};
 	
 	//Document Ready

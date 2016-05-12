@@ -7,8 +7,10 @@ var menu = require('./menu');
 
 //Objects
 var diner = {};
-var totalBill={};
-var dinerBreakdown={};
+
+var totalBill = {dishes{}, cost{}};
+
+var dinerBreakdown= {diner{dishes{}, cost{}}};
 
 
 
