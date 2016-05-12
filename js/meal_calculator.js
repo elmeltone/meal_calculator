@@ -5,12 +5,18 @@ var addDish = require('./addDish');
 var submit = require('./submit');
 var menu = require('./menu');
 
+
 //Objects
+var dish = {
+  name: "name",
+  cost: "cost"
+};
+
 var diner = {};
 
-var totalBill = {dishes{}, cost{}};
+var totalBill = {};
 
-var dinerBreakdown= {diner{dishes{}, cost{}}};
+var dinerBreakdown= {};
 
 
 

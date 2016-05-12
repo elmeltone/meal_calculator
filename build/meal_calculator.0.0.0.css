@@ -1,12 +1,20 @@
 body {
   background-color: forestgreen;
 }
-#dinerName {
+#dinerName,
+#delete {
   font-weight: bold;
+}
+#dinerPreview {
+  list-style-type: none;
 }
 #dinerPreview,
 #totalBill,
 #dinerBreakdown {
   padding-top: 1em;
+}
+span:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #000;
 }
 /*# sourceMappingURL=meal_calculator.0.0.0.css.map */

@@ -54,6 +54,11 @@
 	var menu = __webpack_require__(5);
 	
 	//Objects
+	var dish = {
+	  name: "name",
+	  cost: "cost"
+	};
+	
 	var diner = {};
 	
 	var totalBill = {};
@@ -9985,8 +9990,14 @@
 	  $('#newDish').on('click', function (event) {
 	    event.preventDefault();
 	    console.log('addddddddd');
-	    $('#dinerPreview').append($('#selectDish').val(), " - ", $('#selectDish :selected').text(), "<br>");
+	    $('#dinerPreview').append('<li><span class="delete">X  </span>' + $("#selectDish").val() + ' - ' + $("#selectDish :selected").text() + '</li>');
 	    $('#selectDish').find($('option')).attr('selected', false);
+	  });
+	
+	  $(document).on('click', ".delete", function (event) {
+	    event.preventDefault();
+	    console.log('delete');
+	    $(this).parent('li').remove();
 	  });
 	};
 	
