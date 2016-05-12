@@ -29,6 +29,7 @@ for(var i = 0; i < menu.length; i++) {
 
 addName();
 addDish();
+submit();
 
 /* Use "enter" key for new item */
 $('#diner').on('keydown', (function(event) {

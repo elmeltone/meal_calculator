@@ -11,7 +11,7 @@ var addDish = function() {
     event.preventDefault();
     console.log('addddddddd');
     $('#dinerPreview').append($('#selectDish').val(), " - ", $('#selectDish :selected').text(), "<br>");
-    $('#selectDish').find('option:first').attr('selected', 'selected');
+    $('#selectDish').find($('option')).attr('selected', false);
   })
 };
 

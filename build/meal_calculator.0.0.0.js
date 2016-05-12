@@ -75,6 +75,7 @@
 	
 	  addName();
 	  addDish();
+	  submit();
 	
 	  /* Use "enter" key for new item */
 	  $('#diner').on('keydown', function (event) {
@@ -9982,7 +9983,7 @@
 	    event.preventDefault();
 	    console.log('addddddddd');
 	    $('#dinerPreview').append($('#selectDish').val(), " - ", $('#selectDish :selected').text(), "<br>");
-	    $('#selectDish').find('option:first').attr('selected', 'selected');
+	    $('#selectDish').find($('option')).attr('selected', false);
 	  });
 	};
 	
@@ -9996,7 +9997,12 @@
 	
 	var $ = __webpack_require__(1);
 	
-	var submit = function submit() {};
+	var submit = function submit() {
+	  $('#submitDiner').on('click', function (event) {
+	    event.preventDefault();
+	    console.log('submitting');
+	  });
+	};
 	
 	module.exports = submit;
 
