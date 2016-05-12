@@ -13,17 +13,14 @@
   <section>
   <h1>Meal Calculator</h1>
     <div id="worksheet">
-     <input id="diner" type="text" placeholder="name" name="diner">
-     <input class="button" id="newDiner" type="submit" value="+" name="newDiner"><br>
-     <div id="dinerName"></div><br>
-     <div class="dropdown">
-      <span id="dishDrop">+ Add dish</span>
-      <div class="dropdown-content">
-        <p class="dishes">$0.00 - Water</p>
-      </div>
-     </div>
-     <div id="dinerPreview"></div><br>
-     <input class="button" id="submitDiner" type="submit" value="submit" name="submit">
+      <input id="diner" type="text" placeholder="name" name="diner">
+      <input class="button" id="newDiner" type="submit" value="+" name="newDiner"><br>
+      <div id="dinerName"></div><br>
+      <select id="selectDish">
+        <option>Choose a menu item</option>
+      </select>
+      <div id="dinerPreview"></div><br>
+      <input class="button" id="submitDiner" type="submit" value="submit" name="submit">
     </div>
   </section>
   <section>

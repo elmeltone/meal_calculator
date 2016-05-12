@@ -16,6 +16,14 @@ var dinerBreakdown={};*/
 //Document Ready
 $(function() {
 
+var select = document.getElementById('selectDish');
+for(var i = 0; i < menu.length; i++) {
+  var obj = document.createElement("option");
+  obj.textContent = menu[i].dish;;
+  obj.value = menu[i].price;
+  select.appendChild(obj);
+};
+
 addName();
 
 /* Use "enter" key for new item */

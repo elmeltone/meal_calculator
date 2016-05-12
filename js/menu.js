@@ -60,8 +60,4 @@ var menu = [
   }
 ];
 
-menu.forEach(function(i) {
-  $('.dropdown-content').print('<p class="dishes">' + menu.price + ' - ' + menu.dish + '</p>');
-});
-
 module.exports = menu;

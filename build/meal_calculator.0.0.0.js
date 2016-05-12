@@ -63,6 +63,14 @@
 	//Document Ready
 	$(function () {
 	
+	  var select = document.getElementById('selectDish');
+	  for (var i = 0; i < menu.length; i++) {
+	    var obj = document.createElement("option");
+	    obj.textContent = menu[i].dish;;
+	    obj.value = menu[i].price;
+	    select.appendChild(obj);
+	  };
+	
 	  addName();
 	
 	  /* Use "enter" key for new item */
@@ -10039,10 +10047,6 @@
 	  "dish": "Sake",
 	  "price": "8"
 	}];
-	
-	menu.forEach(function (i) {
-	  $('.dropdown-content').print('<p class="dishes">' + menu.price + ' - ' + menu.dish + '</p>');
-	});
 	
 	module.exports = menu;
 
