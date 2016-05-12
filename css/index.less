@@ -1,12 +1,16 @@
 body {
-  background-color: forestgreen;
+  background-color: orange;
 }
 
-#dinerName, #delete {
+ul, li {
+  padding-left: 2px;
+}
+
+#dinerName, .remove, .delete {
   font-weight: bold;
 }
 
-#dinerPreview {
+#dinerName, #dinerPreview {
   list-style-type: none;
 }
 
@@ -14,7 +18,14 @@ body {
   padding-top: 1em;
 }
 
-span:hover {
+.remove, .delete {
+  color: red;
+}
+
+span {
+  padding-right: 2px;
+  &:hover {
   cursor: pointer;
   text-shadow: 1px 1px 1px #000;
+  }
 }

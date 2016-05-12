@@ -1,10 +1,16 @@
 body {
-  background-color: forestgreen;
+  background-color: orange;
+}
+ul,
+li {
+  padding-left: 2px;
 }
 #dinerName,
-#delete {
+.remove,
+.delete {
   font-weight: bold;
 }
+#dinerName,
 #dinerPreview {
   list-style-type: none;
 }
@@ -12,6 +18,13 @@ body {
 #totalBill,
 #dinerBreakdown {
   padding-top: 1em;
+}
+.remove,
+.delete {
+  color: red;
+}
+span {
+  padding-right: 2px;
 }
 span:hover {
   cursor: pointer;

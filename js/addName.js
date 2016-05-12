@@ -10,14 +10,26 @@ var addName = function() {
     if (!$('#diner').val()) {
       alert('Please type a name.');
     } else {
-      $('#dinerName').append(inputValue);
-      //inputValue = Object.create(diner);
+      $('#dinerName').append('<li><span class="remove">X  </span>'+inputValue+'</li>');
+      inputValue = Object.create(diner);
+      queue.push(inputValue);
 
-    $('#diner, #newDiner').hide();
-    $('#selectDish').show();
-    $('#newDish').show();
+      $('#diner, #newDiner').hide();
+      $('#selectDish').show();
+      $('#newDish').show();
+      $('#diner').val('');
+      }
+  });
+
+  $(document).on('click', ".remove", function(event){
+    event.preventDefault();
+    console.log('remove');
+    queue.pop(inputValue);
+    $(this).parent('li').remove();
+    $('#diner, #newDiner').show();
+    $('#selectDish').hide();
+    $('#newDish').hide();
     $('#diner').val('');
-    };
   });
 };
 
