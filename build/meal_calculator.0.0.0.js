@@ -54,16 +54,16 @@
 	var menu = __webpack_require__(5);
 	
 	//Objects
-	/*var diner = {
-	  name:
-	};
-	var totalBill={};
-	var dinerBreakdown={};*/
+	var diner = {};
+	var totalBill = {};
+	var dinerBreakdown = {};
 	
 	//Document Ready
 	$(function () {
 	
 	  $('#selectDish').hide();
+	  $('#submitDiner').hide();
+	  $('#newDish').hide();
 	
 	  var select = document.getElementById('selectDish');
 	  for (var i = 0; i < menu.length; i++) {
@@ -74,6 +74,7 @@
 	  };
 	
 	  addName();
+	  addDish();
 	
 	  /* Use "enter" key for new item */
 	  $('#diner').on('keydown', function (event) {
@@ -9955,6 +9956,7 @@
 	
 	      $('#diner, #newDiner').hide();
 	      $('#selectDish').show();
+	      $('#newDish').show();
 	    };
 	  });
 	};
@@ -9969,7 +9971,20 @@
 	
 	var $ = __webpack_require__(1);
 	
-	var addDish = function addDish() {};
+	var addDish = function addDish() {
+	  $('#selectDish').on('change', function (event) {
+	    event.preventDefault();
+	    console.log('dish adding');
+	    $('#submitDiner').show();
+	  });
+	
+	  $('#newDish').on('click', function (event) {
+	    event.preventDefault();
+	    console.log('addddddddd');
+	    $('#selectDish :selected').text().val().appendTo('#dinerPreview');
+	    $('#selectDish').find('option:first').attr('selected', 'selected');
+	  });
+	};
 	
 	module.exports = addDish;
 

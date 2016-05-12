@@ -6,17 +6,18 @@ var submit = require('./submit');
 var menu = require('./menu');
 
 //Objects
-/*var diner = {
-  name:
-};
+var diner = {};
 var totalBill={};
-var dinerBreakdown={};*/
+var dinerBreakdown={};
+
 
 
 //Document Ready
 $(function() {
 
 $('#selectDish').hide();
+$('#submitDiner').hide();
+$('#newDish').hide();
 
 var select = document.getElementById('selectDish');
 for(var i = 0; i < menu.length; i++) {
@@ -27,6 +28,7 @@ for(var i = 0; i < menu.length; i++) {
 };
 
 addName();
+addDish();
 
 /* Use "enter" key for new item */
 $('#diner').on('keydown', (function(event) {
