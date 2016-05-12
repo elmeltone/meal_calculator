@@ -9958,6 +9958,7 @@
 	      $('#diner, #newDiner').hide();
 	      $('#selectDish').show();
 	      $('#newDish').show();
+	      $('#diner').val('');
 	    };
 	  });
 	};
@@ -10001,6 +10002,13 @@
 	  $('#submitDiner').on('click', function (event) {
 	    event.preventDefault();
 	    console.log('submitting');
+	    var dinerName = $('#dinerName').text();
+	    var dinerBill = $('#dinerPreview').text();
+	    $('#totalBill').append(dinerBill);
+	    $('#dinerBreakdown').append('--' + dinerName + ':<br>' + dinerBill);
+	    $('#dinerName, #dinerPreview').empty();
+	    $('#selectDish, #submitDiner, #newDish').hide();
+	    $('#diner, #newDiner').show();
 	  });
 	};
 	

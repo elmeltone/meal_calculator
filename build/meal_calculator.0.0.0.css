@@ -4,7 +4,9 @@ body {
 #dinerName {
   font-weight: bold;
 }
-#dinerPreview {
+#dinerPreview,
+#totalBill,
+#dinerBreakdown {
   padding-top: 1em;
 }
 /*# sourceMappingURL=meal_calculator.0.0.0.css.map */

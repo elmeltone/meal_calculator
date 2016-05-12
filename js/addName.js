@@ -16,6 +16,7 @@ var addName = function() {
     $('#diner, #newDiner').hide();
     $('#selectDish').show();
     $('#newDish').show();
+    $('#diner').val('');
     };
   });
 };
