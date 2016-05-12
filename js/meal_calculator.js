@@ -3,6 +3,7 @@ var $ = require('jQuery');
 var addName = require('./addName');
 var addDish = require('./addDish');
 var submit = require('./submit');
+var menu = require('./menu');
 
 //Objects
 /*var diner = {
@@ -15,7 +16,7 @@ var dinerBreakdown={};*/
 //Document Ready
 $(function() {
 
- addName();
+addName();
 
 /* Use "enter" key for new item */
 $('#diner').on('keydown', (function(event) {
