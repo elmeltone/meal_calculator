@@ -11,9 +11,18 @@ var submit = require('./submit');
 var totalBill={};
 var dinerBreakdown={};*/
 
+
 //Document Ready
 $(function() {
+
  addName();
 
+/* Use "enter" key for new item */
+$('#diner').on('keydown', (function(event) {
+  if(event.keyCode === 13){
+    event.preventDefault();
+    $('#newDiner').click();
+  };
+}));
 
 });
