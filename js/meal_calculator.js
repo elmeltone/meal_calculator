@@ -17,8 +17,9 @@ var dinerObj = {
 var currentDish = 0;
 var currentDiner = 0;
 var diners = [];
-var totalBill = {};
+var totalBill = 0;
 var dinerBreakdown= {};
+var taxRate = 0.05;
 
 
 //Functions -------------------------------------
@@ -108,7 +109,7 @@ function addDish() {
   });
 };
 
-var submit = function() {
+function submit() {
   $('#submitDiner').on('click', function(event){
     event.preventDefault();
     console.log('submitting');
@@ -117,15 +118,23 @@ var submit = function() {
         $('#dinerBreakdown').append('<li class="dinerName"><strong>'+diners[i].name+'</strong></li>');
         for (var j = 0; j < diners[i].dishes.length; j++) {
           $('#totalBill').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
+          totalBill += parseInt(diners[i].dishes[j].cost);
           $('#dinerBreakdown').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
         }
       }
     }
     console.log(diners);
+    console.log(totalBill);
+    var salesTax = totalBill*taxRate;
+    //Number(Math.round(salesTax+'e2')+'e-2');
+    var afterTax = totalBill+salesTax;
+    //Number((afterTax).toFixed(3));
     currentDiner++;
     $('#dinerName, #dinerPreview').empty();
     $('#selectDish, #submitDiner, #newDish').hide();
     $('#diner, #newDiner').show();
+    $('#tax').text(salesTax);
+    $('#afterTax').text(afterTax);
   });
 };
 
@@ -137,7 +146,9 @@ $(function() {
 $('#selectDish').hide();
 $('#submitDiner').hide();
 $('#newDish').hide();
+addName();
 
+//Select json menu items from dropdown
 var select = document.getElementById('selectDish');
 for(var i = 0; i < menu.length; i++) {
   var obj = document.createElement("option");
@@ -146,11 +157,10 @@ for(var i = 0; i < menu.length; i++) {
   select.appendChild(obj);
 };
 
-addName();
 addDish();
 submit();
 
-/* Use "enter" key for new item */
+//Use "enter" key for new item
 $('#diner').on('keydown', (function(event) {
   if(event.keyCode === 13){
     event.preventDefault();
