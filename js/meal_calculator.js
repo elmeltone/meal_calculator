@@ -8,11 +8,18 @@ var menu = require('./menu');
 
 //Objects ---------------------------------------
 var dishObj = {
+  id: "",
   name: "",
   cost: ""
 };
-var diner = [];
-var queue = [];
+var dinerObj = {
+  id: "",
+  name: "",
+  dishes: []
+};
+var currentDish = 0;
+var currentDiner = 0;
+var diners = [];
 var totalBill = {};
 var dinerBreakdown= {};
 
@@ -29,9 +36,12 @@ function addName() {
       alert('Please type a name.');
     } else {
       $('#dinerName').append('<li><span class="remove">X  </span>'+inputValue+'</li>');
-      inputValue = Object.create(diner);
-      queue.push(inputValue);
-
+      var diner = Object.create(dinerObj);
+      diner.id = currentDiner;
+      diner.name = inputValue;
+      diner.dishes = [];
+      diners.push(diner);
+      console.log(diners);
       $('#diner, #newDiner').hide();
       $('#selectDish').show();
       $('#newDish').show();
@@ -42,9 +52,11 @@ function addName() {
   $(document).on('click', ".remove", function(event){
     event.preventDefault();
     console.log('remove');
-    queue.pop();
+    diners.pop();
+    console.log(diners);
     $(this).parent('li').remove();
     $('#diner, #newDiner').show();
+    $('#dinerPreview').text('');
     $('#selectDish').hide();
     $('#newDish').hide();
     $('#diner').val('');
@@ -64,19 +76,39 @@ function addDish() {
     var dishName = $("#selectDish :selected").text();
     var dishCost = $("#selectDish").val();
     var newDish = Object.create(dishObj);
+    newDish.id = currentDish;
     newDish.name = dishName;
     newDish.cost = dishCost;
-    queue.push(newDish);
-    $('#dinerPreview').append('<li><span class="delete">X  </span>'+
+    // queue.push(newDish);
+    for (var i = 0; i < diners.length; i++) {
+      if(diners[i].id == currentDiner){
+        diners[i].dishes.push(newDish);
+      }
+    }
+
+    console.log(diners);
+    
+    $('#dinerPreview').append('<li><span class="delete" id="'+currentDish+'">X  </span>'+
       dishCost+' - '+dishName+'</li>');
     $('#selectDish').find($('option')).attr('selected', false);
+    currentDish++;
   });
 
   $(document).on('click', ".delete", function(event){
     event.preventDefault();
     console.log('delete');
-    queue.splice(this.index, 1);
-    console.log(queue);
+    // queue.splice(this.index, 1);
+    var dish = $(this).attr('id');
+    for (var i = 0; i < diners.length; i++) {
+      if(diners[i].id == currentDiner){
+        for (var j = 0; j < diners[i].dishes.length; j++) {
+          if(diners[i].dishes[j].id == dish){
+            diners[i].dishes.splice(j,1);
+          }
+        }
+      }
+    }
+    console.log(diners);
     $(this).parent('li').remove();
   });
 };
@@ -85,16 +117,24 @@ var submit = function() {
   $('#submitDiner').on('click', function(event){
     event.preventDefault();
     console.log('submitting');
-    console.log(queue);
-    queue.forEach(function(i) {
-      $('#totalBill').append('<li>'+i.cost+' - '+i.name+'</li>');
-      $('#dinerBreakdown').append('<li>'+i+'<br>'+i.cost+' - '+i.name+'</li>')
-    })
+    // console.log(queue);
+    for (var i = 0; i < diners.length; i++) {
+      if(diners[i].id == currentDiner){
+        for (var j = 0; j < diners[i].dishes.length; j++) {
+          $('#totalBill').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
+          $('#dinerBreakdown').append('<li class="dinerName"><strong>'+diners[i].name+'</strong></li>');
+          $('#dinerBreakdown').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
+        }
+      }
+    }
+    console.log(diners);
+    currentDiner++;
+
     //var dinerName = $('#dinerName').text();
     //var dinerBill = $('#dinerPreview').text();
     //$('#totalBill').append(dinerBill);
     //$('#dinerBreakdown').append('--'+dinerName+':<br>'+dinerBill);
-    queue.pop();
+    
     $('#dinerName, #dinerPreview').empty();
     $('#selectDish, #submitDiner, #newDish').hide();
     $('#diner, #newDiner').show();
