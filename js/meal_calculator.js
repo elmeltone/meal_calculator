@@ -1,8 +1,5 @@
 //Require JS files ------------------------------
 var $ = require('jQuery');
-//var addName = require('./addName');
-//var addDish = require('./addDish');
-//var submit = require('./submit');
 var menu = require('./menu');
 
 
@@ -79,7 +76,6 @@ function addDish() {
     newDish.id = currentDish;
     newDish.name = dishName;
     newDish.cost = dishCost;
-    // queue.push(newDish);
     for (var i = 0; i < diners.length; i++) {
       if(diners[i].id == currentDiner){
         diners[i].dishes.push(newDish);
@@ -87,7 +83,7 @@ function addDish() {
     }
 
     console.log(diners);
-    
+
     $('#dinerPreview').append('<li><span class="delete" id="'+currentDish+'">X  </span>'+
       dishCost+' - '+dishName+'</li>');
     $('#selectDish').find($('option')).attr('selected', false);
@@ -97,7 +93,6 @@ function addDish() {
   $(document).on('click', ".delete", function(event){
     event.preventDefault();
     console.log('delete');
-    // queue.splice(this.index, 1);
     var dish = $(this).attr('id');
     for (var i = 0; i < diners.length; i++) {
       if(diners[i].id == currentDiner){
@@ -117,24 +112,17 @@ var submit = function() {
   $('#submitDiner').on('click', function(event){
     event.preventDefault();
     console.log('submitting');
-    // console.log(queue);
     for (var i = 0; i < diners.length; i++) {
       if(diners[i].id == currentDiner){
+        $('#dinerBreakdown').append('<li class="dinerName"><strong>'+diners[i].name+'</strong></li>');
         for (var j = 0; j < diners[i].dishes.length; j++) {
           $('#totalBill').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
-          $('#dinerBreakdown').append('<li class="dinerName"><strong>'+diners[i].name+'</strong></li>');
           $('#dinerBreakdown').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
         }
       }
     }
     console.log(diners);
     currentDiner++;
-
-    //var dinerName = $('#dinerName').text();
-    //var dinerBill = $('#dinerPreview').text();
-    //$('#totalBill').append(dinerBill);
-    //$('#dinerBreakdown').append('--'+dinerName+':<br>'+dinerBill);
-    
     $('#dinerName, #dinerPreview').empty();
     $('#selectDish, #submitDiner, #newDish').hide();
     $('#diner, #newDiner').show();
