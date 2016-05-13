@@ -42,7 +42,7 @@ function addName() {
   $(document).on('click', ".remove", function(event){
     event.preventDefault();
     console.log('remove');
-    queue.pop(inputValue);
+    queue.pop();
     $(this).parent('li').remove();
     $('#diner, #newDiner').show();
     $('#selectDish').hide();
@@ -66,7 +66,7 @@ function addDish() {
     var newDish = Object.create(dishObj);
     newDish.name = dishName;
     newDish.cost = dishCost;
-    queue[0].push(newDish);
+    queue.push(newDish);
     $('#dinerPreview').append('<li><span class="delete">X  </span>'+
       dishCost+' - '+dishName+'</li>');
     $('#selectDish').find($('option')).attr('selected', false);
@@ -75,7 +75,7 @@ function addDish() {
   $(document).on('click', ".delete", function(event){
     event.preventDefault();
     console.log('delete');
-    queue[0].pop();
+    queue.splice(this.index, 1);
     console.log(queue);
     $(this).parent('li').remove();
   });
@@ -85,8 +85,8 @@ var submit = function() {
   $('#submitDiner').on('click', function(event){
     event.preventDefault();
     console.log('submitting');
-    var submitDiner = queue[0];
-    submitDiner.forEach(function(i) {
+    console.log(queue);
+    queue.forEach(function(i) {
       $('#totalBill').append('<li>'+i.cost+' - '+i.name+'</li>');
       $('#dinerBreakdown').append('<li>'+i+'<br>'+i.cost+' - '+i.name+'</li>')
     })
