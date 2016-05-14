@@ -170,16 +170,19 @@
 	    }
 	    console.log(diners);
 	    console.log(totalBill);
+	    var totalBillString = totalBill.toFixed(2);
 	    var salesTax = totalBill * taxRate;
-	    //Number(Math.round(salesTax+'e2')+'e-2');
-	    var afterTax = totalBill + salesTax;
-	    //Number((afterTax).toFixed(3));
+	    var taxDue = Math.round(salesTax * 100) / 100;
+	    var taxDueString = taxDue.toFixed(2);
+	    var afterTax = totalBill + taxDue;
+	    var afterTaxString = afterTax.toFixed(2);
 	    currentDiner++;
 	    $('#dinerName, #dinerPreview').empty();
 	    $('#selectDish, #submitDiner, #newDish').hide();
 	    $('#diner, #newDiner').show();
-	    $('#tax').text(salesTax);
-	    $('#afterTax').text(afterTax);
+	    $('#subtotalGross').text(totalBillString + ' - Subtotal');
+	    $('#tax').text(taxDueString + ' - Tax');
+	    $('#afterTax').text(afterTaxString + ' - TOTAL');
 	  });
 	};
 	
