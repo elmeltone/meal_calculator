@@ -59,7 +59,8 @@
 	var dinerObj = {
 	  id: "",
 	  name: "",
-	  dishes: []
+	  dishes: [],
+	  subtotal: 0
 	};
 	var currentDish = 0;
 	var currentDiner = 0;
@@ -163,9 +164,13 @@
 	        $('#dinerBreakdown').append('<li class="dinerName"><strong>' + diners[i].name + '</strong></li>');
 	        for (var j = 0; j < diners[i].dishes.length; j++) {
 	          $('#totalBill').append('<li>' + diners[i].dishes[j].cost + ' - ' + diners[i].dishes[j].name + '</li>');
-	          totalBill += parseInt(diners[i].dishes[j].cost);
+	          var dishCost = parseInt(diners[i].dishes[j].cost * 100) / 100;
+	          totalBill += dishCost;
+	          diners[i].subtotal += dishCost;
 	          $('#dinerBreakdown').append('<li>' + diners[i].dishes[j].cost + ' - ' + diners[i].dishes[j].name + '</li>');
 	        }
+	        var dinerSubtotalString = diners[i].subtotal.toFixed(2);
+	        $('#dinerBreakdown').append('<li class="subtotalDiner">' + dinerSubtotalString + ' - Subtotal</li>');
 	      }
 	    }
 	    console.log(diners);
