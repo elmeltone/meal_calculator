@@ -116,7 +116,7 @@ function submit() {
     console.log('submitting');
     for (var i = 0; i < diners.length; i++) {
       if(diners[i].id == currentDiner){
-        $('#dinerBreakdown').append('<li class="dinerName"><strong>'+diners[i].name+'</strong></li>');
+        $('#dinerBreakdown').append('<li class="dinerName"><br><strong>'+diners[i].name+'</strong></li>');
         for (var j = 0; j < diners[i].dishes.length; j++) {
           $('#totalBill').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
           var dishCost = (parseInt((diners[i].dishes[j].cost)*100))/100;
@@ -152,8 +152,7 @@ function calcTT() {
     for (var i = 0; i < diners.length; i++) {
       $('#dinerBreakdown').append('<li class="dinerName"><br><strong>'+diners[i].name+'</strong></li>');
       for (var j = 0; j < diners[i].dishes.length; j++) {
-        var dishCost = (parseInt((diners[i].dishes[j].cost)*100))/100;
-        $('#dinerBreakdown').append('<li>'+dishCost+' - '+diners[i].dishes[j].name+'</li>');
+        $('#dinerBreakdown').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
       };
       var totalBillString = (totalBill).toFixed(2);
       var salesTax = totalBill*taxRate;
@@ -163,10 +162,10 @@ function calcTT() {
       var afterTaxString = (afterTax).toFixed(2);
       var dinerSubtotalString = (diners[i].subtotal).toFixed(2);
       $('#dinerBreakdown').append('<li class="subtotalDiner">'+dinerSubtotalString+' - Subtotal</li>');
-      var taxSplit = parseInt((taxDue/diners.length)*100)/100;
+      var taxSplit = parseInt(((diners[i].subtotal)*taxRate)*100)/100;
       var taxSplitString = (taxSplit).toFixed(2);
       $('#dinerBreakdown').append('<li class="taxDiner">'+taxSplitString+' - Tax</li>');
-      var tipSplit = parseInt(((totalBill*0.2)/diners.length)*100)/100;
+      var tipSplit = parseInt(((diners[i].subtotal)*0.2)*100)/100;
       var tipSplitString = (tipSplit).toFixed(2);
       $('#dinerBreakdown').append('<li class="tipDiner">'+tipSplitString+' - Tip</li>');
       var dinerTotal = diners[i].subtotal+taxSplit+tipSplit;
