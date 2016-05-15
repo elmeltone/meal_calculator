@@ -5,6 +5,8 @@ ul {
   list-style-type: none;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 ul,
 li {
@@ -29,5 +31,9 @@ span {
 span:hover {
   cursor: pointer;
   text-shadow: 1px 1px 1px #000;
+}
+h4 {
+  text-decoration: underline;
+  margin-bottom: 0;
 }
 /*# sourceMappingURL=meal_calculator.0.0.0.css.map */

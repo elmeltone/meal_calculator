@@ -191,6 +191,36 @@
 	  });
 	};
 	
+	function calcTT() {
+	  $('#calcTT').on('click', function () {
+	    $('#dinerBreakdown').empty();
+	    for (var i = 0; i < diners.length; i++) {
+	      $('#dinerBreakdown').append('<li class="dinerName"><br><strong>' + diners[i].name + '</strong></li>');
+	      for (var j = 0; j < diners[i].dishes.length; j++) {
+	        var dishCost = parseInt(diners[i].dishes[j].cost * 100) / 100;
+	        $('#dinerBreakdown').append('<li>' + dishCost + ' - ' + diners[i].dishes[j].name + '</li>');
+	      };
+	      var totalBillString = totalBill.toFixed(2);
+	      var salesTax = totalBill * taxRate;
+	      var taxDue = Math.round(salesTax * 100) / 100;
+	      var taxDueString = taxDue.toFixed(2);
+	      var afterTax = totalBill + taxDue;
+	      var afterTaxString = afterTax.toFixed(2);
+	      var dinerSubtotalString = diners[i].subtotal.toFixed(2);
+	      $('#dinerBreakdown').append('<li class="subtotalDiner">' + dinerSubtotalString + ' - Subtotal</li>');
+	      var taxSplit = parseInt(taxDue / diners.length * 100) / 100;
+	      var taxSplitString = taxSplit.toFixed(2);
+	      $('#dinerBreakdown').append('<li class="taxDiner">' + taxSplitString + ' - Tax</li>');
+	      var tipSplit = parseInt(totalBill * 0.2 / diners.length * 100) / 100;
+	      var tipSplitString = tipSplit.toFixed(2);
+	      $('#dinerBreakdown').append('<li class="tipDiner">' + tipSplitString + ' - Tip</li>');
+	      var dinerTotal = parseInt((diners[i].subtotal + taxSplit + tipSplit) * 100) / 100;
+	      var dinerTotalString = dinerTotal.toString(2);
+	      $('#dinerBreakdown').append('<li class="totalDiner">' + dinerTotalString + ' - Diner Total</li>');
+	    }
+	  });
+	};
+	
 	//Document Ready --------------------------------
 	$(function () {
 	
@@ -210,6 +240,7 @@
 	
 	  addDish();
 	  submit();
+	  calcTT();
 	
 	  //Use "enter" key for new item
 	  $('#diner').on('keydown', function (event) {
