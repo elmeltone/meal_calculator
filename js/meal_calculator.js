@@ -169,8 +169,8 @@ function calcTT() {
       var tipSplit = parseInt(((totalBill*0.2)/diners.length)*100)/100;
       var tipSplitString = (tipSplit).toFixed(2);
       $('#dinerBreakdown').append('<li class="tipDiner">'+tipSplitString+' - Tip</li>');
-      var dinerTotal = parseInt((diners[i].subtotal+taxSplit+tipSplit)*100)/100;
-      var dinerTotalString = (dinerTotal).toString(2);
+      var dinerTotal = diners[i].subtotal+taxSplit+tipSplit;
+      var dinerTotalString = (dinerTotal).toFixed(2);
       $('#dinerBreakdown').append('<li class="totalDiner">'+dinerTotalString+' - Diner Total</li>');
     }
   })

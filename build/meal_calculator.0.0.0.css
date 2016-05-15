@@ -16,9 +16,13 @@ li {
   padding-top: 0;
   padding-bottom: 0;
 }
+.subtotalDiner {
+  text-decoration: overline;
+}
 #dinerName,
 .remove,
-.delete {
+.delete,
+.totalDiner {
   font-weight: bold;
 }
 .remove,
