@@ -65,13 +65,7 @@ function addName() {
 function addDish() {
   $('#selectDish').on('change', function(event){
     event.preventDefault();
-    console.log('dish adding');
     $('#submitDiner').show();
-  });
-
-  $('#newDish').on('click', function(event){
-    event.preventDefault();
-    console.log('addddddddd');
     var dishName = $("#selectDish :selected").text();
     var dishCost = $("#selectDish").val();
     var newDish = Object.create(dishObj);
@@ -139,7 +133,7 @@ function submit() {
     currentDiner++;
     $('#dinerName, #dinerPreview').empty();
     $('#selectDish, #submitDiner, #newDish').hide();
-    $('#diner, #newDiner').show();
+    $('#diner').show();
     $('#subtotalGross').text(totalBillString+' - Subtotal');
     $('#tax').text(taxDueString+' - Tax');
     $('#afterTax').text(afterTaxString+' - TOTAL');
@@ -180,9 +174,7 @@ function calcTT() {
 //Document Ready --------------------------------
 $(function() {
 
-$('#selectDish').hide();
-$('#submitDiner').hide();
-$('#newDish').hide();
+$('#newDiner, #selectDish, #submitDiner, #newDish').hide();
 addName();
 
 //Select json menu items from dropdown
