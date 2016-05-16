@@ -54,10 +54,9 @@ function addName() {
     diners.pop();
     console.log(diners);
     $(this).parent('li').remove();
-    $('#diner, #newDiner').show();
+    $('#diner').show();
     $('#dinerPreview').text('');
     $('#selectDish').hide();
-    $('#newDish').hide();
     $('#diner').val('');
   });
 };
@@ -137,6 +136,7 @@ function submit() {
     $('#subtotalGross').text(totalBillString+' - Subtotal');
     $('#tax').text(taxDueString+' - Tax');
     $('#afterTax').text(afterTaxString+' - TOTAL');
+    $('#calcTT').focus();
   });
 };
 
