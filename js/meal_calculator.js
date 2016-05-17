@@ -41,8 +41,7 @@ function addName() {
       diners.push(diner);
       console.log(diners);
       $('#diner').prop('disabled', true).css('border-color', '#ccc');
-      $('#selectDish').show();
-      $('#newDish').show();
+      $('#selectDish').show('fast');
       $('#diner').val('');
       }
   });
@@ -55,7 +54,7 @@ function addName() {
     $(this).parent('li').remove();
     $('#diner').prop('disabled', false).css('border-color', 'red');
     $('#dinerPreview').text('');
-    $('#selectDish').hide();
+    $('#selectDish').hide('fast');
     $('#diner').val('');
   });
 };
@@ -63,7 +62,7 @@ function addName() {
 function addDish() {
   $('#selectDish').on('change', function(event){
     event.preventDefault();
-    $('#submitDiner').show();
+    $('#submitDiner').show('fast');
     var dishName = $("#selectDish :selected").text();
     var dishCost = $("#selectDish").val();
     var newDish = Object.create(dishObj);
@@ -130,7 +129,7 @@ function submit() {
     var afterTaxString = (afterTax).toFixed(2);
     currentDiner++;
     $('#dinerName, #dinerPreview').empty();
-    $('#selectDish, #submitDiner, #newDish').hide();
+    $('#selectDish, #submitDiner').hide('fast');
     $('#diner').prop('disabled', false).css('border-color', 'red');
     $('#subtotalGross').text(totalBillString+' - Subtotal');
     $('#tax').text(taxDueString+' - Tax');
@@ -167,7 +166,6 @@ function calcTT() {
 //Document Ready --------------------------------
 $(function() {
 
-//$('#newDiner, #selectDish, #submitDiner, #newDish').hide();
 addName();
 
 //Select json menu items from dropdown
