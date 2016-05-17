@@ -16,6 +16,17 @@ h1 {
   margin-bottom: 0;
 }
 
+h1, h4 {
+  text-shadow: 3px 4px 3px lightgray;
+}
+
+h4 {
+  font-style: italic;
+  font-size: 1.25em;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+
 ul {
   list-style-type: none;
   padding-top: 0.5em;
@@ -48,6 +59,15 @@ input, select {
   height: 2em;
   &:hover {
     cursor: pointer;
+  }
+  box-shadow: 3px 4px 3px lightgray;
+}
+
+span {
+  padding-right: 2px;
+  &:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #000;
   }
 }
 
@@ -111,23 +131,12 @@ input, select {
   color: red;
 }
 
-#selectDish {
-
+#totalBill {
+  padding-bottom: 0;
 }
 
-span {
-  padding-right: 2px;
-  &:hover {
-  cursor: pointer;
-  text-shadow: 1px 1px 1px #000;
-  }
-}
-
-h4 {
-  font-style: italic;
-  font-size: 1.25em;
-  text-decoration: underline;
-  margin-bottom: 0;
+#taxTotal {
+  padding-top: 0;
 }
 
 #calcTT {

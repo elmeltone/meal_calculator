@@ -13,6 +13,16 @@ h1 {
   text-decoration: underline;
   margin-bottom: 0;
 }
+h1,
+h4 {
+  text-shadow: 3px 4px 3px lightgray;
+}
+h4 {
+  font-style: italic;
+  font-size: 1.25em;
+  text-decoration: underline;
+  margin-bottom: 0;
+}
 ul {
   list-style-type: none;
   padding-top: 0.5em;
@@ -39,6 +49,7 @@ select {
   width: 50%;
   max-width: 37em;
   height: 2em;
+  box-shadow: 3px 4px 3px lightgray;
 }
 input:focus,
 select:focus {
@@ -47,6 +58,13 @@ select:focus {
 input:hover,
 select:hover {
   cursor: pointer;
+}
+span {
+  padding-right: 2px;
+}
+span:hover {
+  cursor: pointer;
+  text-shadow: 1px 1px 1px #000;
 }
 #topContainer {
   z-index: 998;
@@ -106,18 +124,11 @@ select:hover {
 .delete {
   color: red;
 }
-span {
-  padding-right: 2px;
+#totalBill {
+  padding-bottom: 0;
 }
-span:hover {
-  cursor: pointer;
-  text-shadow: 1px 1px 1px #000;
-}
-h4 {
-  font-style: italic;
-  font-size: 1.25em;
-  text-decoration: underline;
-  margin-bottom: 0;
+#taxTotal {
+  padding-top: 0;
 }
 #calcTT {
   background-color: white;
