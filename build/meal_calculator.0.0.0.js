@@ -202,6 +202,8 @@
 	      var dinerTotal = diners[i].subtotal + taxSplit + tipSplit;
 	      var dinerTotalString = dinerTotal.toFixed(2);
 	      $('#dinerBreakdown').append('<li class="totalDiner">' + dinerTotalString + ' - Diner Total</li>');
+	
+	      $('#calcTT').blur();
 	    }
 	  });
 	};

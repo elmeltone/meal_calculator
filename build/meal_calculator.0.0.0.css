@@ -46,10 +46,10 @@ select {
   background-color: white;
   border: 1px solid red;
   border-radius: 4px;
+  box-shadow: 3px 4px 3px lightgray;
   width: 50%;
   max-width: 37em;
   height: 2em;
-  box-shadow: 3px 4px 3px lightgray;
 }
 input:focus,
 select:focus {
