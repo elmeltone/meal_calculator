@@ -4,6 +4,12 @@ body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
 }
 
+button {
+  height: 1px;
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-style: italic;
   text-decoration: underline;
@@ -75,6 +81,10 @@ input, select {
   margin-bottom: 0.25em;
 }
 
+#newDiner, #selectDish, #submitDiner, #newDish {
+  display: none;
+}
+
 #diner {
   width: 50%;
   height: 2em;
@@ -84,7 +94,7 @@ input, select {
   border-radius: 4px;
 }
 
-#dinerName {
+#dinerName, #dinerPreview {
   text-align: center;
   margin-left: -5%;
 }
@@ -139,6 +149,9 @@ h4 {
   #quote {
     font-size: 0.75em;
   }
+  ul {
+    margin-left: 35%;
+  }
 
 }
 
@@ -151,6 +164,6 @@ h4 {
     font-size: 0.5em;
   }
   ul {
-    margin-left: 35%;
+    margin-left: 40%;
   }
 }

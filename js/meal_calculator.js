@@ -19,7 +19,6 @@ var currentDish = 0;
 var currentDiner = 0;
 var diners = [];
 var totalBill = 0;
-var dinerBreakdown= {};
 var taxRate = 0.05;
 
 
@@ -41,7 +40,7 @@ function addName() {
       diner.dishes = [];
       diners.push(diner);
       console.log(diners);
-      $('#diner, #newDiner').hide();
+      $('#diner').prop('disabled', true).css('border-color', '#ccc');
       $('#selectDish').show();
       $('#newDish').show();
       $('#diner').val('');
@@ -54,7 +53,7 @@ function addName() {
     diners.pop();
     console.log(diners);
     $(this).parent('li').remove();
-    $('#diner').show();
+    $('#diner').prop('disabled', false).css('border-color', 'red');
     $('#dinerPreview').text('');
     $('#selectDish').hide();
     $('#diner').val('');
@@ -132,7 +131,7 @@ function submit() {
     currentDiner++;
     $('#dinerName, #dinerPreview').empty();
     $('#selectDish, #submitDiner, #newDish').hide();
-    $('#diner').show();
+    $('#diner').prop('disabled', false).css('border-color', 'red');
     $('#subtotalGross').text(totalBillString+' - Subtotal');
     $('#tax').text(taxDueString+' - Tax');
     $('#afterTax').text(afterTaxString+' - TOTAL');
@@ -148,12 +147,6 @@ function calcTT() {
       for (var j = 0; j < diners[i].dishes.length; j++) {
         $('#dinerBreakdown').append('<li>'+diners[i].dishes[j].cost+' - '+diners[i].dishes[j].name+'</li>');
       };
-      var totalBillString = (totalBill).toFixed(2);
-      var salesTax = totalBill*taxRate;
-      var taxDue = Math.round((salesTax*100))/100;
-      var taxDueString = (taxDue).toFixed(2);
-      var afterTax = (totalBill+taxDue);
-      var afterTaxString = (afterTax).toFixed(2);
       var dinerSubtotalString = (diners[i].subtotal).toFixed(2);
       $('#dinerBreakdown').append('<li class="subtotalDiner">'+dinerSubtotalString+' - Subtotal</li>');
       var taxSplit = parseInt(((diners[i].subtotal)*taxRate)*100)/100;
@@ -174,7 +167,7 @@ function calcTT() {
 //Document Ready --------------------------------
 $(function() {
 
-$('#newDiner, #selectDish, #submitDiner, #newDish').hide();
+//$('#newDiner, #selectDish, #submitDiner, #newDish').hide();
 addName();
 
 //Select json menu items from dropdown
