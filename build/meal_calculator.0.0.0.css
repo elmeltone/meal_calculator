@@ -86,10 +86,10 @@ span:hover {
   margin-right: auto;
 }
 #sushiPic {
-  width: 60%;
+  width: 75%;
   max-width: 530px;
   height: auto;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.75em;
 }
 #newDiner,
 #selectDish,
@@ -98,8 +98,8 @@ span:hover {
   display: none;
 }
 #diner {
-  width: 50%;
-  height: 2em;
+  width: 51%;
+  height: 1.25em;
   text-align: center;
   font-size: 1em;
   border: 1px solid red;
@@ -129,6 +129,20 @@ span:hover {
 }
 #taxTotal {
   padding-top: 0;
+}
+#selectTip {
+  width: auto;
+  max-width: 90%;
+  font-size: 0.5em;
+  margin-left: 0;
+  text-align: center;
+}
+#selectTip li {
+  display: inline-block;
+  padding-left: 0.25em;
+}
+#selectTip input {
+  border-color: red;
 }
 #calcTT {
   background-color: white;

@@ -1,6 +1,7 @@
 //Require JS files ------------------------------
 var $ = require('jQuery');
 var menu = require('./menu');
+//var tips = require('./tips');
 
 
 //Objects ---------------------------------------
@@ -20,6 +21,7 @@ var currentDiner = 0;
 var diners = [];
 var totalBill = 0;
 var taxRate = 0.05;
+var tipRate = 0.20;
 
 
 //Functions -------------------------------------
@@ -138,6 +140,9 @@ function submit() {
   });
 };
 
+//function tipSelect() {
+//};
+
 function calcTT() {
   $('#calcTT').on('click', function() {
     $('#dinerBreakdown').empty();
@@ -151,7 +156,7 @@ function calcTT() {
       var taxSplit = parseInt(((diners[i].subtotal)*taxRate)*100)/100;
       var taxSplitString = (taxSplit).toFixed(2);
       $('#dinerBreakdown').append('<li class="taxDiner">'+taxSplitString+' - Tax</li>');
-      var tipSplit = parseInt(((diners[i].subtotal)*0.2)*100)/100;
+      var tipSplit = parseInt(((diners[i].subtotal)*tipRate)*100)/100;
       var tipSplitString = (tipSplit).toFixed(2);
       $('#dinerBreakdown').append('<li class="tipDiner">'+tipSplitString+' - Tip</li>');
       var dinerTotal = diners[i].subtotal+taxSplit+tipSplit;
@@ -181,6 +186,7 @@ for(var i = 0; i < menu.length; i++) {
 
 addDish();
 submit();
+//tipSelect();
 calcTT();
 
 //Use "enter" key for new item

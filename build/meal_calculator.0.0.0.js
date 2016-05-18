@@ -49,6 +49,7 @@
 	//Require JS files ------------------------------
 	var $ = __webpack_require__(1);
 	var menu = __webpack_require__(2);
+	//var tips = require('./tips');
 	
 	//Objects ---------------------------------------
 	var dishObj = {
@@ -67,6 +68,7 @@
 	var diners = [];
 	var totalBill = 0;
 	var taxRate = 0.05;
+	var tipRate = 0.20;
 	
 	//Functions -------------------------------------
 	function addName() {
@@ -183,6 +185,9 @@
 	  });
 	};
 	
+	//function tipSelect() {
+	//};
+	
 	function calcTT() {
 	  $('#calcTT').on('click', function () {
 	    $('#dinerBreakdown').empty();
@@ -196,7 +201,7 @@
 	      var taxSplit = parseInt(diners[i].subtotal * taxRate * 100) / 100;
 	      var taxSplitString = taxSplit.toFixed(2);
 	      $('#dinerBreakdown').append('<li class="taxDiner">' + taxSplitString + ' - Tax</li>');
-	      var tipSplit = parseInt(diners[i].subtotal * 0.2 * 100) / 100;
+	      var tipSplit = parseInt(diners[i].subtotal * tipRate * 100) / 100;
 	      var tipSplitString = tipSplit.toFixed(2);
 	      $('#dinerBreakdown').append('<li class="tipDiner">' + tipSplitString + ' - Tip</li>');
 	      var dinerTotal = diners[i].subtotal + taxSplit + tipSplit;
@@ -224,6 +229,7 @@
 	
 	  addDish();
 	  submit();
+	  //tipSelect();
 	  calcTT();
 	
 	  //Use "enter" key for new item
